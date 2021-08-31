@@ -357,9 +357,11 @@ The Casting Agency models a company that is responsible for creating movies and 
 
 - Models:
 
-Movies with attributes title and release date
+```
+    Movies with attributes title and release date
 
-Actors with attributes name, age and gender
+    Actors with attributes name, age and gender
+```
 
 - Endpoints:
 ```
