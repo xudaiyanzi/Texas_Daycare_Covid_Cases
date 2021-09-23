@@ -6,22 +6,6 @@ import random
 
 from models import setup_db, Question, Category
 
-# QUESTIONS_PER_PAGE = 10
-# # start paginate the questions, which make the display more appealing
-# def paginate_questions(request, selection):
-#     # if no 'page' is provided, return the first page
-#     # if 'page' is provided, return the requested page
-#     page = request.args.get('page', 1, type=int)
-#     start = (page - 1) * QUESTIONS_PER_PAGE
-#     end = start + QUESTIONS_PER_PAGE
-
-#     # try to format the questions
-#     questions = [question.format() for question in selection]
-#     current_questions = questions[start:end]
-
-#     return current_questions
-
-## another way to do pagination, which is good for big data
 def paginate_questions(request, selection):
     items_limit = request.args.get('limit', 10, type=int)
     selected_page = request.args.get('page', 1, type=int)

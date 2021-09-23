@@ -1,19 +1,46 @@
-Steps:
-1. We need .csv file.
-2. We need to create the table structure.
-3. Create the table.
-4. Run the copy command.
-5. Validate the data inserted in table by select query.
+# COVID-19 cases in Texas daycares
 
-
-
-# Trivia API - a way to learn API 
-
-I used this project to improve my API skill. It seperates the full stack work into backend and frontend. Here, my main focus is on the backend, where I finished the API request and error handlers in the flaskr, and write the test_flaskr.py to test each API, and use curl to request the API response. In the well-built frontend, I update the urls, which allows API response being read successfully.
-
-All the API responses are presented in json files.
+This project helps to present the most recent accumulated COVID cases of the kids and staff in texas childcare centers. The general public can see the cases by City and by zip code. The authorized database manager can edit the cases numbers. This web is hosted in heroku and link is (https://covid-cases-in-tx-daycare.herokuapp.com/).
 
 ## 1. Getting started
+
+#### 1.1 Data souces and manipulation:
+
+The data is from texas health and Huamn Service (https://www.hhs.texas.gov/services/health/coronavirus-covid-19/texas-covid-19-case-count-vaccination-data). The raw data is in .xls file, and I modifided it into .csv file. I onload the data to psql with the following step:
+
+    (1) create psql database locally
+        (1.1) create a database
+            see "/backend/covid_in_tx_daycare.sql"
+        (1.2) create a table structure
+            see "create_daycare_table.psql"
+        (1.3) copy .csv to (2) table
+            run 
+            '''
+                $COPY covid_in_tx_daycare FROM '/YOURPATH/create_daycare_table.psql' DELIMITER ',' CSV HEADER;
+        (1.4) Validate the data inserted in table by select query
+            * run psql in terminal
+            * check with "SELECT * FROM covid_in_tx_daycare LIMIT 5;"
+    
+    (2) dump the data to heroku-psql
+        (2.1) create a the app in heroku, named "covid-cases-in-tx-daycare"
+        (2.2) type 'Heroku Postgres' into the Add-ons search field of your app.
+            * The link for reference (https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
+        (2.3) choose "Hobby Dev - Free" and click 'Provision'
+        (2.4) access to the database credential by navigating to "Resources tab" in your app's dashboard again and select the Heroku Postgres
+        (2.5) go to pgAdmin4 to create a new server with the credentials from (2.4)
+            * The link for reference (https://www.jhipster.tech/tips/028_tip_pgadmin_heroku.html)
+        (2.6) dump database from (1) to heroku-psql
+            * in the local terminal
+                ```
+                heroku pg:psql --app covid-cases-in-tx-daycare < covid_in_tx_daycare.sql
+
+
+
+
+
+
+
+## 1. 
 
 Install the backend prerequirement dependencies by using this command:
 
