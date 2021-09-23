@@ -1,3 +1,12 @@
+Steps:
+1. We need .csv file.
+2. We need to create the table structure.
+3. Create the table.
+4. Run the copy command.
+5. Validate the data inserted in table by select query.
+
+
+
 # Trivia API - a way to learn API 
 
 I used this project to improve my API skill. It seperates the full stack work into backend and frontend. Here, my main focus is on the backend, where I finished the API request and error handlers in the flaskr, and write the test_flaskr.py to test each API, and use curl to request the API response. In the well-built frontend, I update the urls, which allows API response being read successfully.

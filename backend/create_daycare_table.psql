@@ -1,0 +1,22 @@
+-- Table: public.covid_in_tx_daycare
+
+-- DROP TABLE public.covid_in_tx_daycare;
+
+CREATE TABLE IF NOT EXISTS public.covid_in_tx_daycare
+(
+    county character varying(80) COLLATE pg_catalog."default",
+    permit_type character varying(100) COLLATE pg_catalog."default",
+    child_care_name character varying(200) COLLATE pg_catalog."default",
+    street_address character varying(300) COLLATE pg_catalog."default",
+    city character varying(80) COLLATE pg_catalog."default",
+    zip character varying(80) NOT NULL,
+    kid_count_covid_on_09202021 integer NOT NULL,
+    staff_count_covid_on_09202021 integer NOT NULL,
+    kid_total_count_covid_since_052021 integer NOT NULL,
+    staff_total_count_covid_since_052021 integer NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.covid_in_tx_daycare
+    OWNER to postgres;
