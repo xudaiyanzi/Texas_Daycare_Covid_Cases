@@ -3,3 +3,5 @@ COPY covid_in_tx_daycare FROM '/Users/yanxu/Desktop/demo/capstone/backend/daycar
 ALTER TABLE covid_in_tx_daycare
 ALTER COLUMN kid_total_count_covid_since_052021 TYPE varchar(20),
 ALTER COLUMN staff_total_count_covid_since_052021 TYPE varchar(20);
+
+ALTER TABLE covid_in_tx_daycare ADD COLUMN id SERIAL PRIMARY KEY;

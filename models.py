@@ -1,11 +1,10 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine
+from sqlalchemy import Column, String, Integer
 from flask_sqlalchemy import SQLAlchemy
-import json
 
 database_name = os.getenv('DB_NAME','covid_in_tx_daycare')
 database_host = os.getenv('DB_HOST', 'localhost:5432')
-database_path = "postgres://{}/{}".format(database_host, database_name)
+database_path = "postgresql://{}/{}".format(database_host, database_name)
 
 db = SQLAlchemy()
 '''
@@ -20,7 +19,7 @@ def setup_db(app, database_path=database_path):
     db.create_all()
 
 '''
-Question
+Covid_in_tx_daycare
 
 '''
 class Covid_in_tx_daycare(db.Model):  
