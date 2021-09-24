@@ -1,6 +1,6 @@
 from models import Covid_in_tx_daycare
 import os
-from flask import Flask, request, abort, jsonify
+from flask import Flask, request, abort, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import random
@@ -22,7 +22,7 @@ def paginate_questions(request, selection):
 
 def create_app(test_config=None):
     # create and configure the app
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder='templates')
     setup_db(app)
 
     '''
@@ -44,6 +44,22 @@ def create_app(test_config=None):
                              'GET,PUT,POST,DELETE,PATCH')
 
         return response
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    @app.route('/submit', methods=['POST'])
+    def submit():
+        if request.method == 'POST':
+            city = request.form['city']
+
+            if city == '':
+                return render_template('index.html', message='Please input the required data')
+            return render_template('success.html')
+
+
+
 
     '''
     Create an endpoint to handle GET requests

@@ -30,20 +30,20 @@ class Covid_in_tx_daycare(db.Model):
   child_care_name = Column(String)
   street_address = Column(String)
   city = Column(String)
-  zip = Column(String)
+  zipcode = Column(String)
   kid_count_covid_on_09202021 = Column(Integer)
   staff_count_covid_on_09202021 = Column(Integer)
   kid_total_count_covid_since_052021 = Column(Integer)
   staff_total_count_covid_since_052021 = Column(Integer)
 
   def __init__(self, county, child_care_name, street_address, city,\
-    zip,kid_count_covid_on_09202021,staff_count_covid_on_09202021,\
+    zipcode,kid_count_covid_on_09202021,staff_count_covid_on_09202021,\
     kid_total_count_covid_since_052021, staff_total_count_covid_since_052021):
 
     self.county = county
     self.child_care_name = child_care_name
     self.street_address = street_address
-    self.zip = zip
+    self.zipcode = zipcode
     self.kid_count_covid_on_09202021 = kid_count_covid_on_09202021
     self.staff_count_covid_on_09202021 = staff_count_covid_on_09202021
     self.kid_total_count_covid_since_052021 = kid_total_count_covid_since_052021
@@ -66,7 +66,7 @@ class Covid_in_tx_daycare(db.Model):
       'child_care_name': self.child_care_name,
       'street_address': self.street_address,
       'city': self.city,
-      'zip': self.zip,
+      'zipcode': self.zipcode,
       'kid_count_covid_on_09202021': self.kid_count_covid_on_09202021,
       'staff_count_covid_on_09202021': self.staff_count_covid_on_09202021,
       'kid_total_count_covid_since_052021': self.kid_total_count_covid_since_052021,
