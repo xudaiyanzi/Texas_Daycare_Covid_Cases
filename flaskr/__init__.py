@@ -59,8 +59,6 @@ def create_app(test_config=None):
             return render_template('success.html')
 
 
-
-
     '''
     Create an endpoint to handle GET requests
     for all available categories.
