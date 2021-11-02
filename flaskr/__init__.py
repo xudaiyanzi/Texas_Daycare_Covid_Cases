@@ -360,4 +360,7 @@ def create_app(test_config=None):
           'error': 405
         }), 405
 
+    if __name__ == '__main__':
+        app.run(debug=True) # Have always on debug when you develop,before finish version
+   
     return app
