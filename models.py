@@ -33,12 +33,12 @@ class Covid_in_tx_daycare(db.Model):
   zipcode = Column(String)
   kid_count_covid_on_09202021 = Column(Integer)
   staff_count_covid_on_09202021 = Column(Integer)
-  kid_total_count_covid_since_052021 = Column(Integer)
-  staff_total_count_covid_since_052021 = Column(Integer)
+  kid_total_count_covid_since_052020 = Column(Integer)
+  staff_total_count_covid_since_052020 = Column(Integer)
 
   def __init__(self, county, child_care_name, street_address, city,\
     zipcode,kid_count_covid_on_09202021,staff_count_covid_on_09202021,\
-    kid_total_count_covid_since_052021, staff_total_count_covid_since_052021):
+    kid_total_count_covid_since_032020, staff_total_count_covid_since_032020):
 
     self.county = county
     self.child_care_name = child_care_name
@@ -46,8 +46,8 @@ class Covid_in_tx_daycare(db.Model):
     self.zipcode = zipcode
     self.kid_count_covid_on_09202021 = kid_count_covid_on_09202021
     self.staff_count_covid_on_09202021 = staff_count_covid_on_09202021
-    self.kid_total_count_covid_since_052021 = kid_total_count_covid_since_052021
-    self.staff_total_count_covid_since_052021 = staff_total_count_covid_since_052021
+    self.kid_total_count_covid_since_032020 = kid_total_count_covid_since_032020
+    self.staff_total_count_covid_since_032020 = staff_total_count_covid_since_032020
 
   def insert(self):
     db.session.add(self)
@@ -69,6 +69,6 @@ class Covid_in_tx_daycare(db.Model):
       'zipcode': self.zipcode,
       'kid_count_covid_on_09202021': self.kid_count_covid_on_09202021,
       'staff_count_covid_on_09202021': self.staff_count_covid_on_09202021,
-      'kid_total_count_covid_since_052021': self.kid_total_count_covid_since_052021,
-      'staff_total_count_covid_since_052021': self.staff_total_count_covid_since_052021
+      'kid_total_count_covid_since_032020': self.kid_total_count_covid_since_032020,
+      'staff_total_count_covid_since_032020': self.staff_total_count_covid_since_032020
     }
